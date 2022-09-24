@@ -1,16 +1,18 @@
 {
   "name": "ggtech-comp-lib",
-  "version": "0.0.4",
+  "version": "0.0.8",
   "description": "component library using typescript and webpack",
   "main": "index.js",
   "scripts": {
     "clean": "shx rm -rf dist",
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc & shx mkdir dist/assets & shx cp -r src/assets dist/",
+    "prepub": "shx cp package.json dist",
+    "pub": "cd dist & npm publish",
+    "postpub": "cd dist & shx rm package.json",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "files": ["dist","./index.js"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/guptagaurav89/react-library.git"
